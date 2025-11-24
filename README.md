@@ -42,16 +42,47 @@ Header:
 Delay.h, stdutils.h, gpioi.h
 
 # PIN DIAGRAM :
- 
+ <img width="767" height="416" alt="image" src="https://github.com/user-attachments/assets/04c3e837-1c48-45e5-9e23-4331b66ecbf7" />
+
 
 # CIRCUIT DIAGRAM:
  
- 
+ <img width="715" height="366" alt="image" src="https://github.com/user-attachments/assets/a6861f3a-f384-4c58-ac62-e48fca57c880" />
+
 # PROGRAM:
+```
+#include <lpc17xx.h>
+#include "delay.h"      
+#include "gpio.h"
 
+#define LED P1_29        
 
+/* start the main program */
+int main()
+{
+    SystemInit();                         
+    GPIO_PinFunction(LED,PINSEL_FUNC_0);   
+    GPIO_PinDirection(LED,OUTPUT);        
+    GPIO_PinWrite(LED,LOW);
+
+    while(1)
+    {
+        /* Turn On all the leds and wait for 100ms */
+        GPIO_PinWrite(LED,HIGH);           
+        DELAY_ms(100);
+
+        GPIO_PinWrite(LED,LOW);           
+        DELAY_ms(100);
+    }
+}
+```
  
 # Output:
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/8b3f6a59-a11c-447f-8862-0f48fbba20c5" />
+
+
+
+https://github.com/user-attachments/assets/79c75af4-c000-4412-a8c4-2c815eea495f
 
 
 
